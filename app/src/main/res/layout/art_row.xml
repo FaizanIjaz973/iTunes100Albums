@@ -15,7 +15,7 @@
 
     <ImageView
 
-        android:id="@+id/artRowImageView"
+        android:id="@+id/albumRowImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
@@ -25,9 +25,8 @@
         android:id="@+id/rateTxtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="16dp"
-        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="12dp"
         android:layout_gravity="bottom|right">
     </TextView>
 
@@ -40,7 +39,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/artRowArtNameText"
+            android:id="@+id/albumRowArtNameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="14dp"
@@ -48,7 +47,7 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/artRowArtistNameText"
+            android:id="@+id/albumRowArtistNameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="14dp"
@@ -56,7 +55,7 @@
             android:textSize="12sp" />
 
         <TextView
-            android:id="@+id/artRowYearText"
+            android:id="@+id/albumRowReleaseDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="14dp"

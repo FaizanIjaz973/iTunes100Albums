@@ -16,11 +16,11 @@ import org.w3c.dom.Text
 
 import javax.inject.Inject
 
-class MainRecyclerViewAdapter @Inject constructor(
+class FavoritesFragmentRecyclerViewAdapter @Inject constructor(
     private val glide : RequestManager
-) : RecyclerView.Adapter<MainRecyclerViewAdapter.ArtViewHolder>() {
+) : RecyclerView.Adapter<FavoritesFragmentRecyclerViewAdapter.FavoritesViewHolder>() {
 
-    class ArtViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    class FavoritesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     private val diffUtil = object : DiffUtil.ItemCallback<Entity>() {
         override fun areItemsTheSame(oldItem: Entity, newItem: Entity): Boolean {
@@ -38,12 +38,12 @@ class MainRecyclerViewAdapter @Inject constructor(
         get() = recyclerListDiffer.currentList
         set(value) = recyclerListDiffer.submitList(value)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArtViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoritesViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.art_row, parent, false)
-        return ArtViewHolder(view)
+        return FavoritesViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ArtViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: FavoritesViewHolder, position: Int) {
         val imageView = holder.itemView.findViewById<ImageView>(R.id.albumRowImageView)
         val albumName = holder.itemView.findViewById<TextView>(R.id.albumRowArtNameText)
         val artistName = holder.itemView.findViewById<TextView>(R.id.albumRowArtistNameText)
@@ -68,4 +68,5 @@ class MainRecyclerViewAdapter @Inject constructor(
     override fun getItemCount(): Int {
         return albums.size
     }
+
 }
