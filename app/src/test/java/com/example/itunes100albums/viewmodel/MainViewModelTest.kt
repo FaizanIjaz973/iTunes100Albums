@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.itunes100albums.MainCoroutineRule
 import com.example.itunes100albums.getOrAwaitValueTest
+import com.example.itunes100albums.model.*
 import com.example.itunes100albums.repository.FakeRepository
 import com.example.itunes100albums.room.Entity
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -72,7 +73,7 @@ class MainViewModelTest {
     }
 
     @Test
-    fun getAllAlbumsTest() {
+    fun getAllAlbumsFromDBCountTest() {
         val album = Entity(imageUrl = "image.com",
             "FaizanAlbum",
             "Faizan",
@@ -84,5 +85,29 @@ class MainViewModelTest {
         viewModel.insertFavoriteAlbum(album)
         val albums = viewModel.albumsFromDB.getOrAwaitValueTest()
         assertThat(albums.size).isEqualTo(1)
+    }
+
+    @Test
+    fun searchAlbumsFromInternet(){
+
+        runTest {
+
+            val feed = Feed(
+                Author(
+                Name("Test"),
+                Uri("")
+                ),
+                listOf(),
+                Icon(""),
+                IdX(""),
+                listOf(),
+                RightsX(""),
+                TitleX(""),
+                Updated("")
+            )
+            viewModel.searchAlbums()
+            val listOfAlbums = viewModel.response.getOrAwaitValueTest()
+            assertThat(listOfAlbums.feed).isEqualTo(feed)
+        }
     }
 }

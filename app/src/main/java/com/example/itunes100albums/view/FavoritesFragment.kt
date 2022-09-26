@@ -21,7 +21,9 @@ import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
 @AndroidEntryPoint
-class FavoritesFragment @Inject constructor(private val favoritesRecyclerViewAdapter: FavoritesFragmentRecyclerViewAdapter) : Fragment(R.layout.fragment_favorites) {
+class FavoritesFragment @Inject constructor(
+    private val favoritesRecyclerViewAdapter: FavoritesFragmentRecyclerViewAdapter
+    ) : Fragment(R.layout.fragment_favorites) {
 
     private val viewModel: MainViewModel by viewModels()
     private var fragmentBinding : FragmentFavoritesBinding? = null

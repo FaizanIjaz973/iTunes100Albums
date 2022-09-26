@@ -25,8 +25,8 @@ class FakeRepository : RepositoryInterface {
     }
 
     override suspend fun searchAlbum(): ApiResponse? {
-        return ApiResponse(Feed
-            (Author(Name(""),
+        return ApiResponse(Feed(Author(
+            Name("Test"),
             Uri("")),
             listOf(),
             Icon(""),

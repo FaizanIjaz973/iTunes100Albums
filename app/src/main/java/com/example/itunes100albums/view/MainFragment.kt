@@ -41,7 +41,7 @@ class MainFragment @Inject constructor(
             viewModel.insertFavoriteAlbum(albumRecyclerViewAdapter.albums[viewHolder.layoutPosition])
             albumRecyclerViewAdapter.notifyDataSetChanged()
 
-            val snackbar = view?.let { it1 -> Snackbar.make(it1.findViewById(R.id.rootLayout),
+            val snackbar = view?.let { it1 -> Snackbar.make(it1.findViewById(R.id.rootLayoutFragmentMain),
                 "Album " + albumRecyclerViewAdapter.albums[viewHolder.layoutPosition].name + " added to favorites!",
                 Snackbar.LENGTH_LONG) }
             if (snackbar != null) {
